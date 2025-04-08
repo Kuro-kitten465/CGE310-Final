@@ -1,6 +1,6 @@
 {
     "name": "Kuro.Dialogue",
-    "rootNamespace": "KuroNovel",
+    "rootNamespace": "Kuro.Dialogue",
     "references": [
         "GUID:6055be8ebefd69e48b49212b09b47b2f",
         "GUID:2bafac87e7f4b9b418d9448d219b01ab",
@@ -8,7 +8,10 @@
         "GUID:9e24947de15b9834991c9d8411ea37cf",
         "GUID:eec0964c48f6f4e40bc3ec2257ccf8c5",
         "GUID:84651a3751eca9349aac36a66bba901b",
-        "GUID:d8b63aba1907145bea998dd612889d6b"
+        "GUID:d8b63aba1907145bea998dd612889d6b",
+        "GUID:f06555f75b070af458a003d92f9efb00",
+        "GUID:06cfdfe45d1d648c7a0bc5bff48cf8b5",
+        "GUID:56ddf70610a143c4d8cf29915fc85a2c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
