@@ -23,7 +23,7 @@ namespace Kuro.Dialogue
 
         [Header("Choice UI")]
         public GameObject choicePanel;
-        public Button choiceButtonPrefab;
+        public GameObject choiceButtonPrefab;
 
         [Header("Dialogue Settings")]
         public float textSpeed = 0.05f;
@@ -136,7 +136,7 @@ namespace Kuro.Dialogue
             typingCoroutine = StartCoroutine(TypeSentence(line.text));
 
             // Auto advance after set duration
-            autoAdvanceCoroutine = StartCoroutine(AutoAdvanceAfterDelay(line.displayDuration));
+            //autoAdvanceCoroutine = StartCoroutine(AutoAdvanceAfterDelay(line.displayDuration));
 
             // Advance to next line for next time
             currentLineIndex++;
@@ -150,6 +150,9 @@ namespace Kuro.Dialogue
                 dialogueText.text += letter;
                 yield return new WaitForSeconds(textSpeed);
             }
+
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
+            DisplayNextLine();
         }
 
         private IEnumerator AutoAdvanceAfterDelay(float delay)
@@ -169,7 +172,8 @@ namespace Kuro.Dialogue
             // Create buttons for each choice
             foreach (var choice in currentDialogue.choices)
             {
-                Button choiceButton = Instantiate(choiceButtonPrefab, choicePanel.transform);
+                var obj = Instantiate(choiceButtonPrefab, choicePanel.transform);
+                var choiceButton = GetComponent<Button>();
                 choiceButton.GetComponentInChildren<TextMeshProUGUI>().text = choice.choiceText;
 
                 // Setup button click with the choice's flag
