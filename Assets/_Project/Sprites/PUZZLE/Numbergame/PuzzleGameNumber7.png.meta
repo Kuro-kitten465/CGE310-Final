@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PuzzleGameNumber7_0: 4027291299615668774
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

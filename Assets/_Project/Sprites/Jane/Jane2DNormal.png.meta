@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Jane2DNormal_0: 47861827330074667
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

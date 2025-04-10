@@ -923,7 +923,38 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      JimFaceNormal_0: 6174610126207305405
+      JimFaceNormal_1: 8534933440755604936
+      JimFaceNormal_10: -2533961490616767482
+      JimFaceNormal_11: -7778119329792603799
+      JimFaceNormal_12: -8625856240367259790
+      JimFaceNormal_13: 5561701031316626762
+      JimFaceNormal_14: -4007469270313644691
+      JimFaceNormal_15: -950093457592483064
+      JimFaceNormal_16: 5420385891329279761
+      JimFaceNormal_17: 8853329358195752374
+      JimFaceNormal_18: 6888651722951868311
+      JimFaceNormal_19: -4823278986702088658
+      JimFaceNormal_2: -2299221605398354186
+      JimFaceNormal_20: -238662623004787194
+      JimFaceNormal_21: -6113555526363736092
+      JimFaceNormal_22: 5868084965239321077
+      JimFaceNormal_23: -8384610040559416635
+      JimFaceNormal_24: -5601485756396539993
+      JimFaceNormal_25: -1649799876207777070
+      JimFaceNormal_26: 9052750840366208122
+      JimFaceNormal_27: -369140654230888641
+      JimFaceNormal_28: 6333757118128036848
+      JimFaceNormal_29: 2069321711144879993
+      JimFaceNormal_3: 3027691406188683081
+      JimFaceNormal_30: -4926468676190540809
+      JimFaceNormal_4: -4959530014561022747
+      JimFaceNormal_5: -4064678159597814684
+      JimFaceNormal_6: -2271362698473096249
+      JimFaceNormal_7: -5774030212097110931
+      JimFaceNormal_8: 208475528297268719
+      JimFaceNormal_9: -160543616018676528
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

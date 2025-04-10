@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -151,9 +151,9 @@ TextureImporter:
       name: JimWalkAniSheet_0
       rect:
         serializedVersion: 2
-        x: 17
+        x: 0
         y: 0
-        width: 31
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -173,9 +173,9 @@ TextureImporter:
       name: JimWalkAniSheet_1
       rect:
         serializedVersion: 2
-        x: 81
+        x: 64
         y: 0
-        width: 27
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -195,9 +195,9 @@ TextureImporter:
       name: JimWalkAniSheet_2
       rect:
         serializedVersion: 2
-        x: 145
+        x: 128
         y: 0
-        width: 31
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -217,9 +217,9 @@ TextureImporter:
       name: JimWalkAniSheet_3
       rect:
         serializedVersion: 2
-        x: 209
+        x: 192
         y: 0
-        width: 27
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -239,7 +239,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7a8ca51ce0ed57748aacb9182576e781
     internalID: 0
     vertices: []
     indices: 
@@ -248,7 +248,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      JimWalkAniSheet_0: 1723528772299281242
+      JimWalkAniSheet_1: 1609276210807241822
+      JimWalkAniSheet_2: 6433046220616980963
+      JimWalkAniSheet_3: -2176349924415035818
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
