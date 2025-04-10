@@ -1,4 +1,5 @@
 using UnityEngine;
+using Kuro.Components;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -9,16 +10,45 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private KeyCode[] _interactKeys = { KeyCode.F, KeyCode.E };
     [SerializeField] private KeyCode[] _cancelKeys = { KeyCode.Escape, KeyCode.X };
 
+    [Header("References")]
+    [SerializeField] private GameObject _interactBTN;
+
+    private GameObject _currentInteractable;
+    private PlayerController _playerController;
+
+    private void Awake()
+    {
+        _playerController = GetComponent<PlayerController>();    
+    }
+
     private void Update()
     {
+        if (!_playerController._canMove) return;
+
         var hit = Physics2D.OverlapCircle(transform.position, _detectionRadius, _interactLayer);
 
-        if (hit is null) return;
+        if (hit is null)
+        {
+            if (_currentInteractable != null)
+                Destroy(_currentInteractable);
+            
+            return;
+        }
 
         if (hit.TryGetComponent<IInteractable>(out var interactable))
         {
+            if (_currentInteractable == null)
+                _currentInteractable = Instantiate(
+                    _interactBTN,
+                    new Vector3(hit.transform.position.x, hit.bounds.max.y, hit.transform.position.z),
+                    Quaternion.identity
+                );
+
             if (Input.GetKeyDown(_interactKeys[0]) || Input.GetKeyDown(_interactKeys[1]))
+            {
                 interactable.Interact(this);
+                Destroy(_currentInteractable);
+            }
         }
     }
 

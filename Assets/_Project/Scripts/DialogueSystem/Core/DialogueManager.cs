@@ -4,6 +4,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine.Events;
 using Kuro.GameSystem;
+using Kuro.Utilities.DesignPattern;
 
 namespace Kuro.Dialogue
 {
@@ -26,7 +27,8 @@ namespace Kuro.Dialogue
         public GameObject choiceButtonPrefab;
 
         [Header("Dialogue Settings")]
-        public float textSpeed = 0.05f;
+        public float textSpeed = 0.03f;
+        public bool isCutScene = false;
 
         [Header("Events")]
         public UnityEvent OnDialogueStart;
@@ -53,12 +55,20 @@ namespace Kuro.Dialogue
             choicePanel.SetActive(false);
         }
 
+        void OnDestroy()
+        {
+            isCutScene = false;
+            _instance = null;
+        }
+
         // Start a dialogue sequence from a DialogueData scriptable object
         public void StartDialogue(DialogueData dialogue)
         {
             currentDialogue = dialogue;
             currentLineIndex = 0;
             isDialogueActive = true;
+
+            EventBus.Publish(EventCollector.StopEvent);
 
             // Save this dialogue as the current checkpoint
             GameState.Instance.lastDialogueID = dialogue.dialogueID;
@@ -127,16 +137,20 @@ namespace Kuro.Dialogue
             GameState.Instance.lastDialogueLineIndex = currentLineIndex;
 
             // Set flag if needed
-            if (!string.IsNullOrEmpty(line.flagToSet))
+            /*if (!string.IsNullOrEmpty(line.flagToSet))
             {
                 GameState.Instance.SetFlag(line.flagToSet);
-            }
+            }*/
 
             // Start typing animation
             typingCoroutine = StartCoroutine(TypeSentence(line.text));
 
             // Auto advance after set duration
-            //autoAdvanceCoroutine = StartCoroutine(AutoAdvanceAfterDelay(line.displayDuration));
+            if (line.isAutoAdvance)
+            {
+                isCutScene = true;
+                autoAdvanceCoroutine = StartCoroutine(AutoAdvanceAfterDelay(line.displayDuration));
+            }
 
             // Advance to next line for next time
             currentLineIndex++;
@@ -151,8 +165,11 @@ namespace Kuro.Dialogue
                 yield return new WaitForSeconds(textSpeed);
             }
 
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
-            DisplayNextLine();
+            if (!isCutScene)
+            {
+                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
+                DisplayNextLine();
+            }
         }
 
         private IEnumerator AutoAdvanceAfterDelay(float delay)
@@ -180,7 +197,7 @@ namespace Kuro.Dialogue
                 string flagToSet = choice.flagToSet;
                 choiceButton.onClick.AddListener(() =>
                 {
-                    GameState.Instance.SetFlag(flagToSet);
+                    //GameState.Instance.SetFlag(flagToSet);
                     EndDialogue();
                 });
             }
@@ -193,14 +210,21 @@ namespace Kuro.Dialogue
             isDialogueActive = false;
             dialoguePanel.SetActive(false);
             choicePanel.SetActive(false);
+            isCutScene = false;
 
             // Check if this dialogue triggers a quest update
-            if (currentDialogue.triggersQuestUpdate && !string.IsNullOrEmpty(currentDialogue.questIDToUpdate))
+            if (currentDialogue.triggersQuestUpdate && currentDialogue.questToUpdate != null)
             {
-                GameState.Instance.AdvanceQuest(currentDialogue.questIDToUpdate);
+                QuestManager.Instance.GoToNextQuest(currentDialogue.questToUpdate.QuestID);
+                EventBus.Publish(EventCollector.ShowQuestEvent);
             }
 
-            OnDialogueEnd?.Invoke();
+            if (currentDialogue.TriggerCutsceneOnEnded)
+            {
+                OnDialogueEnd?.Invoke();
+            }
+
+            EventBus.Publish(EventCollector.ContinueEvent);
         }
 
         // Public method to check if dialogue is currently active

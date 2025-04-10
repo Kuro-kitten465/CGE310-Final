@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using Kuro.GameSystem;
 
 namespace Kuro.Dialogue
 {
@@ -14,7 +15,7 @@ namespace Kuro.Dialogue
             public Sprite characterSprite;
             public string text;
             public float displayDuration = 3f; // How long to display before auto-advancing
-            public string flagToSet = ""; // Optional flag to set when this line is shown
+            public bool isAutoAdvance = false; // Whether to auto-advance after the display duration
         }
 
         [Serializable]
@@ -28,6 +29,7 @@ namespace Kuro.Dialogue
         public List<DialogueLine> lines = new();
         public DialogueChoice[] choices; // Choices at the end of the dialogue (optional)
         public bool triggersQuestUpdate = false;
-        public string questIDToUpdate = "";
+        public Quest questToUpdate; // Quest to update when this dialogue is triggered
+        public bool TriggerCutsceneOnEnded = false; // Whether to trigger a cutscene when this dialogue is ended
     }
 }

@@ -5,24 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/Scenes/MainMenu.unity
     guid: ad37efc0a2a630644a705ed46f983cab
   - enabled: 1
-    path: Assets/_Project/Scenes/Maps/StarterScene.unity
+    path: Assets/_Project/Scenes/Maps/ScenesStories/Scene_1.unity
     guid: 637aee1c327d21d419d35825c83d8382
   - enabled: 1
-    path: Assets/_Project/Scenes/Maps/Jim_Room.unity
-    guid: 7420fce8d201cdd4c90e10a5a9f3c396
+    path: Assets/_Project/Scenes/Maps/ScenesStories/Scene_2.unity
+    guid: 245d3f2713371f943b76a7075dde9f3b
   - enabled: 1
-    path: Assets/_Project/Scenes/Maps/School_Hallway_Floor_1.unity
-    guid: dc4d7a40dab4c204d9c087f4944e9815
-  - enabled: 1
-    path: Assets/_Project/Scenes/Maps/School_Hallway_Floor_2.unity
-    guid: c0f442f7f15f1174ca9ca49fe72ae981
-  - enabled: 1
-    path: Assets/_Project/Scenes/Maps/School_Janitor_Room.unity
-    guid: 08cf77821cdcfbc49b81d531e7317621
+    path: Assets/_Project/Scenes/Maps/ScenesStories/Scene_3.unity
+    guid: d63237658b584e749a97a46d0c13f4b3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

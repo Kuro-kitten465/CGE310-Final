@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5736219868906261019}
   - component: {fileID: 6667851958704970351}
   - component: {fileID: 4483791412289124922}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerJim
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce4b1bbc99e5254bbd31c2a429d8d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 175
+  _moveSpeed: 2
+  _canMove: 0
 --- !u!114 &5736219868906261019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +65,7 @@ MonoBehaviour:
   _detectionRadius: 0.5
   _interactLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   _interactKeys: 4301000065000000
   _cancelKeys: 1b00000078000000
 --- !u!70 &6667851958704970351
@@ -127,9 +128,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 6
 --- !u!1 &1415014235626377226
 GameObject:
@@ -142,9 +143,9 @@ GameObject:
   - component: {fileID: 3598170726533924955}
   - component: {fileID: 3960221648666914703}
   - component: {fileID: 3681502888207975478}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Renderer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,12 +209,12 @@ SpriteRenderer:
   m_SortingLayerID: -1723933015
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8047450363127168381, guid: 1cefd1cc7326b144f8da0bf3ea339d1b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1cefd1cc7326b144f8da0bf3ea339d1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.421875, y: 1}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

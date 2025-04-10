@@ -9,6 +9,7 @@ namespace Kuro.GameSystem
         //public CinemachineVirtualCamera virtualCam;
         [SerializeField] private CinemachineCamera _cinemachineCamera;
         [SerializeField] private Transform _player;
+        [SerializeField] private bool _isUseInCutScene = false;
 
         [Header("Zone Settings")]
         [SerializeField] private SpriteRenderer _cameraZoneSpriteLeft;
@@ -40,17 +41,20 @@ namespace Kuro.GameSystem
                 _rightCenterX = bounds.center.x;
             }
 
-            _cinemachineCamera.Follow = _player;
+            if (!_isUseInCutScene)
+                _cinemachineCamera.Follow = _player;
         }
 
         void Update()
         {
-            if (_lockCameraOnStart)
+            if (_lockCameraOnStart && !_isUseInCutScene)
             {
                 _cinemachineCamera.Follow = null;
                 _cameraFrozen = true;
                 return;
             }
+
+            if (_isUseInCutScene) return;
 
             if (_cameraZoneSpriteLeft is null || _cameraZoneSpriteRight is null)
                 return;

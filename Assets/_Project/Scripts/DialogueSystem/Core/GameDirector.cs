@@ -26,7 +26,7 @@ namespace Kuro.Dialogue
         public DialogueDatabase dialogueDatabase;
 
         [Header("Game States")]
-        public List<GameStateTransition> gameStates = new List<GameStateTransition>();
+        public List<GameStateTransition> gameStates = new();
         public string currentStateID = "start";
 
         private void Start()

@@ -1,6 +1,7 @@
-using UnityEngine;
-
-public interface IInteractable
+namespace Kuro.Components
 {
-    void Interact(PlayerManager manager);
+    public interface IInteractable
+    {
+        void Interact(PlayerManager manager);
+    }
 }
