@@ -37,12 +37,13 @@ namespace Kuro.GameSystem
 
         private void OnEnable()
         {
-            EventBus.Subscribe(EventCollector.ShowQuestEvent, ShowQuest);
-            EventBus.Subscribe(EventCollector.HideQuestEvent, HideQuest);
+           EventBus.Publish(EventCollector.HideQuestEvent);
         }
 
-        private void OnDisable()
+        protected override void OnDestroy()
         {
+            base.OnDestroy();
+
             EventBus.Unsubscribe(EventCollector.ShowQuestEvent);
             EventBus.Unsubscribe(EventCollector.HideQuestEvent);
         }
@@ -50,29 +51,45 @@ namespace Kuro.GameSystem
         protected override void OnInitialize()
         {
             _database = Resources.Load<QuestDatabase>("QuestDatabase");
+
+            EventBus.Subscribe(EventCollector.ShowQuestEvent, ShowQuest);
+            EventBus.Subscribe(EventCollector.HideQuestEvent, HideQuest);
         }
 
-        public void OnQuestCompleted()
+        public void StartQuest(string questID)
         {
-            if (_currentQuest.GoToNextQuestImmediately == false) return;
-            
-            GoToNextQuest(NextQuest.QuestID);
-        }
-
-        public void GoToNextQuest(string questID)
-        {
-            Quest quest = _database.GetQuest(questID);
-
-            if (quest == null)
+            if (_currentQuest != null)
             {
-                Debug.LogError($"Quest with ID {questID} not found in the database.");
+                Debug.LogWarning("A quest is already in progress. Complete it before starting a new one.");
                 return;
             }
 
-            _currentQuest = quest;
+            _currentQuest = _database.Quests.FirstOrDefault(q => q.QuestID == questID);
+            if (_currentQuest == null)
+            {
+                Debug.LogError($"Quest with ID {questID} not found.");
+                return;
+            }
 
-            _questName.text = quest.QuestElement.QuestName;
-            _questDescription.text = quest.QuestElement.Description;
+            _questName.text = _currentQuest.QuestElement.QuestName;
+            _questDescription.text = _currentQuest.QuestElement.Description;
+
+            EventBus.Publish(EventCollector.ShowQuestEvent);
+        }
+
+        public void CompleteQuest(Quest quest)
+        {
+            if (_currentQuest == null || _currentQuest != quest)
+            {
+                Debug.LogWarning("No matching quest is currently in progress.");
+                return;
+            }
+
+            _questName.text = "";
+            _questDescription.text = "";
+
+            _currentQuest = null;
+            EventBus.Publish(EventCollector.HideQuestEvent);
         }
     }
 }

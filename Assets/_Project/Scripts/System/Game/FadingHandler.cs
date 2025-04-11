@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ namespace Kuro.GameSystem
         private Canvas _fadeCanvas;
         private CanvasGroup _canvasGroup;
         private bool _isFading = false;
+
+        public Action OnFadeCompleted;
 
         private void Awake()
         {
@@ -57,6 +60,7 @@ namespace Kuro.GameSystem
             }
 
             _isFading = false;
+            OnFadeCompleted?.Invoke();
         }
     }
 }

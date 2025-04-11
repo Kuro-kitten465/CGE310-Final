@@ -215,7 +215,19 @@ namespace Kuro.Dialogue
             // Check if this dialogue triggers a quest update
             if (currentDialogue.triggersQuestUpdate && currentDialogue.questToUpdate != null)
             {
-                QuestManager.Instance.GoToNextQuest(currentDialogue.questToUpdate.QuestID);
+                switch (currentDialogue.triggerType)
+                {
+                    case QuestTrigger.TriggerType.StartQuest:
+                        QuestManager.Instance.StartQuest(currentDialogue.questToUpdate.QuestID);
+                        break;
+                    case QuestTrigger.TriggerType.CompleteQuest:
+                        QuestManager.Instance.CompleteQuest(currentDialogue.questToUpdate);
+                        break;
+                    case QuestTrigger.TriggerType.UpdateQuest:
+                        //QuestManager.Instance.UpdateQuest(currentDialogue.questToUpdate.QuestID);
+                        break;
+                }
+                
                 EventBus.Publish(EventCollector.ShowQuestEvent);
             }
 

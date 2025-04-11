@@ -66,8 +66,9 @@ MonoBehaviour:
   _interactLayer:
     serializedVersion: 2
     m_Bits: 64
-  _interactKeys: 4301000065000000
+  _interactKeys: 2000000066000000
   _cancelKeys: 1b00000078000000
+  _interactBTN: {fileID: 152120167643840885, guid: 72201ee666b2789469f6bf3c012f0350, type: 3}
 --- !u!70 &6667851958704970351
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -208,7 +209,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1723933015
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1cefd1cc7326b144f8da0bf3ea339d1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -14,6 +14,10 @@ namespace Kuro.Dialogue
         public bool triggerOnInteract = false;
         public string requiredFlag = ""; // Flag that must be set to trigger this dialogue
 
+        public bool TriggerOneTimeOnly => throw new System.NotImplementedException();
+
+        public bool HasTriggered => throw new System.NotImplementedException();
+
         private void Start()
         {
             if (triggerOnStart)

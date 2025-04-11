@@ -30,6 +30,7 @@ namespace Kuro.Dialogue
         public DialogueChoice[] choices; // Choices at the end of the dialogue (optional)
         public bool triggersQuestUpdate = false;
         public Quest questToUpdate; // Quest to update when this dialogue is triggered
+        public QuestTrigger.TriggerType triggerType;
         public bool TriggerCutsceneOnEnded = false; // Whether to trigger a cutscene when this dialogue is ended
     }
 }

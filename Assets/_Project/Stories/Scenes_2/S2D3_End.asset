@@ -20,6 +20,7 @@ MonoBehaviour:
     displayDuration: 6
     isAutoAdvance: 1
   choices: []
-  triggersQuestUpdate: 0
-  questToUpdate: {fileID: 0}
+  triggersQuestUpdate: 1
+  questToUpdate: {fileID: 11400000, guid: e8dd2aecb88db7444be2ef81fb5e9cf9, type: 2}
+  triggerType: 1
   TriggerCutsceneOnEnded: 0

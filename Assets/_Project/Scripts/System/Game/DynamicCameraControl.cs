@@ -83,5 +83,13 @@ namespace Kuro.GameSystem
                 _cameraFrozen = false;
             }
         }
+
+        public void SetActiveCamera(bool isActive)
+        {
+            if (_cinemachineCamera != null)
+            {
+                _cinemachineCamera.gameObject.SetActive(isActive);
+            }
+        }
     }
 }

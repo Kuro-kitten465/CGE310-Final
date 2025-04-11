@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float _detectionRadius = 0.5f;
     [SerializeField] private LayerMask _interactLayer;
     [Header("Input Settings")]
-    [SerializeField] private KeyCode[] _interactKeys = { KeyCode.F, KeyCode.E };
+    [SerializeField] private KeyCode[] _interactKeys = { KeyCode.F, KeyCode.Space };
     [SerializeField] private KeyCode[] _cancelKeys = { KeyCode.Escape, KeyCode.X };
 
     [Header("References")]
@@ -15,6 +15,8 @@ public class PlayerManager : MonoBehaviour
 
     private GameObject _currentInteractable;
     private PlayerController _playerController;
+
+    public PlayerController PlayerController => _playerController;
 
     private void Awake()
     {
@@ -37,6 +39,9 @@ public class PlayerManager : MonoBehaviour
 
         if (hit.TryGetComponent<IInteractable>(out var interactable))
         {
+            if (interactable.HasTriggered && interactable.TriggerOneTimeOnly)
+                return;
+
             if (_currentInteractable == null)
                 _currentInteractable = Instantiate(
                     _interactBTN,
