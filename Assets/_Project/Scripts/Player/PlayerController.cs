@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponentInChildren<Animator>();
+
+        _isRight = transform.localScale.x < 0 ? true : false;
     }
 
     private void OnEnable()

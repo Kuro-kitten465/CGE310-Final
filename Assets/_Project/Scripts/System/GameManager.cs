@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Kuro.Utilities.DesignPattern;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
@@ -27,6 +26,7 @@ public class GameManager : MonoSingleton<GameManager>
     protected override void OnInitialize()
     {
         GameManagerDataList.Add(new GameManagerData("Umbrella", FlagType.BOOL, false));
+        GameManagerDataList.Add(new GameManagerData("Key", FlagType.BOOL, false));
     }
 
     public void AddFlag(string id, FlagType flagType, object value)

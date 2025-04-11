@@ -151,6 +151,10 @@ namespace Kuro.Dialogue
                 isCutScene = true;
                 autoAdvanceCoroutine = StartCoroutine(AutoAdvanceAfterDelay(line.displayDuration));
             }
+            else
+            {
+                isCutScene = false;
+            }
 
             // Advance to next line for next time
             currentLineIndex++;
@@ -167,7 +171,7 @@ namespace Kuro.Dialogue
 
             if (!isCutScene)
             {
-                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
+                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Space));
                 DisplayNextLine();
             }
         }
@@ -190,8 +194,9 @@ namespace Kuro.Dialogue
             foreach (var choice in currentDialogue.choices)
             {
                 var obj = Instantiate(choiceButtonPrefab, choicePanel.transform);
-                var choiceButton = GetComponent<Button>();
-                choiceButton.GetComponentInChildren<TextMeshProUGUI>().text = choice.choiceText;
+                var buttonText = obj.GetComponentInChildren<TextMeshProUGUI>();
+                buttonText.text = choice.choiceText;
+                var choiceButton = obj.GetComponent<Button>();
 
                 // Setup button click with the choice's flag
                 string flagToSet = choice.flagToSet;
@@ -227,7 +232,7 @@ namespace Kuro.Dialogue
                         //QuestManager.Instance.UpdateQuest(currentDialogue.questToUpdate.QuestID);
                         break;
                 }
-                
+
                 EventBus.Publish(EventCollector.ShowQuestEvent);
             }
 

@@ -148,13 +148,14 @@ GameObject:
   - component: {fileID: 7315243736193002338}
   - component: {fileID: 3261876105357615345}
   - component: {fileID: 7156628897315649379}
+  - component: {fileID: 8432097207792525686}
   m_Layer: 5
   m_Name: Choices
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8996100127658771138
 RectTransform:
   m_ObjectHideFlags: 0
@@ -257,3 +258,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8432097207792525686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6081317221508864882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5fb28291971714bad810ff3eed4584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choiceText: {fileID: 3457972082531869858}

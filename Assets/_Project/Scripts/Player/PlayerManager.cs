@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject _interactBTN;
 
     private GameObject _currentInteractable;
+    private Collider2D _currentHit;
     private PlayerController _playerController;
 
     public PlayerController PlayerController => _playerController;
@@ -41,6 +42,14 @@ public class PlayerManager : MonoBehaviour
         {
             if (interactable.HasTriggered && interactable.TriggerOneTimeOnly)
                 return;
+
+            if (_currentHit is null || _currentHit != hit)
+            {
+                _currentHit = hit;
+                if (_currentInteractable != null)
+                    Destroy(_currentInteractable);
+            }
+                
 
             if (_currentInteractable == null)
                 _currentInteractable = Instantiate(

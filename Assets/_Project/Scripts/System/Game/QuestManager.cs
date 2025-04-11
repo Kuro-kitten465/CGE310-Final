@@ -58,6 +58,8 @@ namespace Kuro.GameSystem
 
         public void StartQuest(string questID)
         {
+            if (_currentQuest != null && _currentQuest.GoToNextQuestImmediately) _currentQuest = null;
+
             if (_currentQuest != null)
             {
                 Debug.LogWarning("A quest is already in progress. Complete it before starting a new one.");
@@ -71,7 +73,8 @@ namespace Kuro.GameSystem
                 return;
             }
 
-            _questName.text = _currentQuest.QuestElement.QuestName;
+            //_questName.text = _currentQuest.QuestElement.QuestName;
+            _questName.text = "";
             _questDescription.text = _currentQuest.QuestElement.Description;
 
             EventBus.Publish(EventCollector.ShowQuestEvent);
@@ -87,6 +90,12 @@ namespace Kuro.GameSystem
 
             _questName.text = "";
             _questDescription.text = "";
+
+            if (_currentQuest.GoToNextQuestImmediately)
+            {
+                StartQuest(NextQuest.QuestID);
+                return;
+            }
 
             _currentQuest = null;
             EventBus.Publish(EventCollector.HideQuestEvent);

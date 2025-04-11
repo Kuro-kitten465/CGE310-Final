@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d985115d3ad1c784b8d8946daae2d5ff, type: 3}
+  m_Name: S8D5
+  m_EditorClassIdentifier: 
+  dialogueID: S8D5
+  lines:
+  - characterName: 
+    characterSprite: {fileID: 0}
+    text: "**\u0E1B\u0E25\u0E14\u0E25\u0E47\u0E2D\u0E01\u0E1B\u0E23\u0E30\u0E15\u0E39**"
+    displayDuration: 1.5
+    isAutoAdvance: 1
+  choices: []
+  triggersQuestUpdate: 0
+  questToUpdate: {fileID: 0}
+  triggerType: 0
+  TriggerCutsceneOnEnded: 0

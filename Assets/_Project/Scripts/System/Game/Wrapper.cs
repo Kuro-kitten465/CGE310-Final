@@ -16,7 +16,6 @@ public class Wrapper : MonoBehaviour, IInteractable
     [Header("Flags")]
     [SerializeField] private bool _checkFlag = false;
     [SerializeField] private string _flagToCheck = "None";
-    [SerializeField] private GameManager.FlagType _flagType = GameManager.FlagType.NOT_FOUND;
     [SerializeField] private bool _flagValueBool;
     [SerializeField] private int _flagValueInt;
     [SerializeField] private float _flagValueString;

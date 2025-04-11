@@ -42,6 +42,8 @@ namespace Kuro.GameSystem
             _canvasGroup.blocksRaycasts = true;
             _canvasGroup.interactable = false;
 
+            if (startAlpha == 1f) yield return new WaitForSeconds(1f); // Wait for the next frame to start fading in
+
             while (elapsedTime < fadeDuration)
             {
                 elapsedTime += Time.deltaTime;
