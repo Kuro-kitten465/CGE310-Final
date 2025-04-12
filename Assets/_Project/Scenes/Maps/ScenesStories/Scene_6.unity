@@ -1102,6 +1102,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e182ea24a0026e4aa512d4c7cbb4a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1849262522 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6665286529333016131, guid: d9a1652188d5942489a304009b38d369, type: 3}
+  m_PrefabInstance: {fileID: 1962748333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1938338211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,6 +1146,7 @@ MonoBehaviour:
   nameText: {fileID: 1962748337}
   dialogueText: {fileID: 1962748336}
   characterImage: {fileID: 1962748335}
+  NextText: {fileID: 1849262522}
   choicePanel: {fileID: 1962748334}
   choiceButtonPrefab: {fileID: 6081317221508864882, guid: 4b79cb6861369124fa3d1d06f8cf0ba3, type: 3}
   textSpeed: 0.03
@@ -1603,10 +1615,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.057812504
     y: 0
-    width: 1
-    height: 1
+    width: 0.587963
+    height: 0.5879629
   near clip plane: 0.3
   far clip plane: 100
   field of view: 60

@@ -21,6 +21,7 @@ namespace Kuro.Dialogue
         public TextMeshProUGUI nameText;
         public TextMeshProUGUI dialogueText;
         public Image characterImage;
+        public TMP_Text NextText;
 
         [Header("Choice UI")]
         public GameObject choicePanel;
@@ -148,11 +149,13 @@ namespace Kuro.Dialogue
             // Auto advance after set duration
             if (line.isAutoAdvance)
             {
+                NextText.gameObject.SetActive(false);
                 isCutScene = true;
                 autoAdvanceCoroutine = StartCoroutine(AutoAdvanceAfterDelay(line.displayDuration));
             }
             else
             {
+                NextText.gameObject.SetActive(true);
                 isCutScene = false;
             }
 
