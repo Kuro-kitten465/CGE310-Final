@@ -11,22 +11,20 @@ public class GameManager : MonoSingleton<GameManager>
 
     public readonly List<GameManagerData> GameManagerDataList = new();
 
-    #if UNITY_EDITOR
-    [Header("Editor Only")]
-    [property: SerializeField] bool HasUmbrella { get {
-        var flag = GameManagerDataList.FirstOrDefault(data => data.ID == "Umbrella");
-        if (flag != null && flag.FlagType == FlagType.BOOL)
-        {
-            return (bool)flag.Value;
-        }
-        return false;
-    }}
-    #endif
-
     protected override void OnInitialize()
     {
         GameManagerDataList.Add(new GameManagerData("Umbrella", FlagType.BOOL, false));
         GameManagerDataList.Add(new GameManagerData("Key", FlagType.BOOL, false));
+        GameManagerDataList.Add(new GameManagerData("WinPuzzle", FlagType.BOOL, false));
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+            Debug.Log("Application is quitting...");
+        }
     }
 
     public void AddFlag(string id, FlagType flagType, object value)
